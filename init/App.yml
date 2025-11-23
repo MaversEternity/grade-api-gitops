@@ -8,11 +8,13 @@ spec:
   source:
     repoURL: https://github.com/MaversEternity/grade-api-gitops.git
     targetRevision: HEAD
-    path: config
+    path: config/
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: grade-api
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
